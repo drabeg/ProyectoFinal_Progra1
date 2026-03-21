@@ -1,0 +1,198 @@
+-- =========================================
+-- CREACIÓN DE BASE DE DATOS
+-- =========================================
+CREATE DATABASE HotelDB;
+GO
+USE HotelDB;
+
+-- =========================================
+-- CREACIÓN DE TABLAS
+-- =========================================
+
+-- Tabla Empleado
+CREATE TABLE Empleado (
+    id_empleado INT IDENTITY(1,1) PRIMARY KEY,
+    nombre VARCHAR(50) NOT NULL,
+    apellido VARCHAR(50) NOT NULL,
+    puesto VARCHAR(50),
+    telefono VARCHAR(20)
+);
+
+-- Tabla Usuario
+CREATE TABLE Usuario (
+    id_usuario INT IDENTITY(1,1) PRIMARY KEY,
+    username VARCHAR(50) NOT NULL,
+    password VARCHAR(50) NOT NULL,
+    id_empleado INT UNIQUE,
+    FOREIGN KEY (id_empleado) REFERENCES Empleado(id_empleado)
+);
+
+-- Tabla Hotel
+CREATE TABLE Hotel (
+    id_hotel INT IDENTITY(1,1) PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    direccion VARCHAR(150),
+    telefono VARCHAR(20)
+);
+
+-- Tabla TipoHabitacion
+CREATE TABLE TipoHabitacion (
+    id_tipo INT IDENTITY(1,1) PRIMARY KEY,
+    nombre VARCHAR(50) NOT NULL,
+    descripcion VARCHAR(100),
+    precio DECIMAL(10,2) NOT NULL
+);
+
+-- Tabla Habitacion
+CREATE TABLE Habitacion (
+    id_habitacion INT IDENTITY(1,1) PRIMARY KEY,
+    numero VARCHAR(10) NOT NULL,
+    id_tipo INT NOT NULL,
+    id_hotel INT NOT NULL,
+    estado VARCHAR(20) NOT NULL,
+    FOREIGN KEY (id_tipo) REFERENCES TipoHabitacion(id_tipo),
+    FOREIGN KEY (id_hotel) REFERENCES Hotel(id_hotel),
+    CONSTRAINT chk_estado CHECK (estado IN ('Disponible', 'Ocupado', 'Mantenimiento'))
+);
+
+-- Tabla Cliente
+CREATE TABLE Cliente (
+    id_cliente INT IDENTITY(1,1) PRIMARY KEY,
+    nombre VARCHAR(50) NOT NULL,
+    apellido VARCHAR(50) NOT NULL,
+    dpi VARCHAR(20),
+    telefono VARCHAR(20),
+    correo VARCHAR(100)
+);
+
+-- Tabla Reservacion
+CREATE TABLE Reservacion (
+    id_reservacion INT IDENTITY(1,1) PRIMARY KEY,
+    id_cliente INT NOT NULL,
+    id_empleado INT NOT NULL,
+    id_hotel INT NOT NULL,
+    fecha_inicio DATE NOT NULL,
+    fecha_fin DATE NOT NULL,
+    total DECIMAL(10,2),
+    FOREIGN KEY (id_cliente) REFERENCES Cliente(id_cliente),
+    FOREIGN KEY (id_empleado) REFERENCES Empleado(id_empleado),
+    FOREIGN KEY (id_hotel) REFERENCES Hotel(id_hotel)
+);
+
+-- Tabla DetalleReservacion
+CREATE TABLE DetalleReservacion (
+    id_detalle INT IDENTITY(1,1) PRIMARY KEY,
+    id_reservacion INT NOT NULL,
+    id_habitacion INT NOT NULL,
+    dias INT NOT NULL,
+    subtotal DECIMAL(10,2),
+    FOREIGN KEY (id_reservacion) REFERENCES Reservacion(id_reservacion),
+    FOREIGN KEY (id_habitacion) REFERENCES Habitacion(id_habitacion)
+);
+
+-- =========================================
+-- INSERTS (DATOS)
+-- =========================================
+
+-- Empleado
+INSERT INTO Empleado (nombre, apellido, puesto, telefono) 
+VALUES 
+('Carlos', 'Lopez', 'Recepcionista', '12345678'),
+('Ana', 'Martinez', 'Administrador', '87654321');
+
+-- Usuario
+INSERT INTO Usuario (username, password, id_empleado)
+VALUES 
+('carlos', '1234', 1),
+('ana', '1234', 2);
+
+-- Hotel
+INSERT INTO Hotel (nombre, direccion, telefono)
+VALUES 
+('Hotel Paradise', 'Zona 10', '11112222');
+
+-- TipoHabitacion
+INSERT INTO TipoHabitacion (nombre, descripcion, precio)
+VALUES 
+('Simple', '1 cama', 200.00),
+('Doble', '2 camas', 350.00),
+('Suite', 'Lujo', 600.00);
+
+-- Habitacion
+INSERT INTO Habitacion (numero, id_tipo, id_hotel, estado)
+VALUES 
+('101', 1, 1, 'Disponible'),
+('102', 2, 1, 'Disponible'),
+('103', 3, 1, 'Mantenimiento'),
+('104', 1, 1, 'Disponible');
+
+-- Cliente
+INSERT INTO Cliente (nombre, apellido, dpi, telefono, correo)
+VALUES 
+('Juan', 'Perez', '1234567890101', '55554444', 'juan@gmail.com'),
+('Maria', 'Gomez', '9876543210101', '44443333', 'maria@gmail.com');
+
+-- Reservacion
+INSERT INTO Reservacion (id_cliente, id_empleado, id_hotel, fecha_inicio, fecha_fin, total)
+VALUES 
+(1, 1, 1, '2026-03-20', '2026-03-25', 1000.00),
+(2, 2, 1, '2026-03-22', '2026-03-24', 700.00);
+
+-- DetalleReservacion
+INSERT INTO DetalleReservacion (id_reservacion, id_habitacion, dias, subtotal)
+VALUES 
+(1, 1, 5, 1000.00),
+(2, 2, 2, 700.00);
+
+-- =========================================
+-- CONSULTAS BÁSICAS
+-- =========================================
+
+SELECT * FROM Cliente;
+SELECT * FROM Habitacion;
+SELECT * FROM Reservacion;
+
+-- =========================================
+-- CONSULTA COMPLEJA (DETALLE DE RESERVACIÓN)
+-- =========================================
+
+SELECT 
+    r.id_reservacion,
+    c.nombre + ' ' + c.apellido AS Cliente,
+    e.nombre + ' ' + e.apellido AS Empleado,
+    h.nombre AS Hotel,
+    r.fecha_inicio,
+    r.fecha_fin,
+    r.total,
+    ha.numero AS Habitacion,
+    dr.dias,
+    dr.subtotal
+FROM Reservacion r
+JOIN Cliente c ON r.id_cliente = c.id_cliente
+JOIN Empleado e ON r.id_empleado = e.id_empleado
+JOIN Hotel h ON r.id_hotel = h.id_hotel
+JOIN DetalleReservacion dr ON r.id_reservacion = dr.id_reservacion
+JOIN Habitacion ha ON dr.id_habitacion = ha.id_habitacion
+WHERE r.id_reservacion = 1;
+
+-- =========================================
+-- CONSULTA DE DISPONIBILIDAD
+-- =========================================
+
+DECLARE @fechaInicio DATE = '2026-03-21';
+DECLARE @fechaFin DATE = '2026-03-23';
+
+SELECT 
+    h.numero,
+    th.nombre AS Tipo,
+    th.precio
+FROM Habitacion h
+JOIN TipoHabitacion th ON h.id_tipo = th.id_tipo
+WHERE h.id_habitacion NOT IN (
+    SELECT dr.id_habitacion
+    FROM DetalleReservacion dr
+    JOIN Reservacion r ON dr.id_reservacion = r.id_reservacion
+    WHERE 
+        r.fecha_inicio <= @fechaFin
+        AND r.fecha_fin >= @fechaInicio
+);
