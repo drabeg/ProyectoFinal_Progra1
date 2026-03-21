@@ -86,8 +86,11 @@ Fases pendientes:
 
 ## Autores
 
-- Nombre: Dario Alfredo Rabe Godoy
-- Carné: 5190-25-23683
+- Nombre: Dario Alfredo Rabe Godoy /Carné: 5190-25-23683
+- Nombre: Libbny Dayana Medrano Arévalo /Carné: 5190-25-24096
+- Nombre: Richard Esteev Pernillo Macario /Carné: 5190-25-21234
+- Nombre: Cristian Daniel Emiliano Cano Estrada /Carné: 5190-25-24608
+- Nombre: Diego Jose Quevedo Vega /Carné: 5190-24-21422
 - Universidad Mariano Gálvez
 
 ## Notas
