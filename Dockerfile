@@ -2,23 +2,23 @@
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /app
 
-# Copiamos todo el contenido del repositorio al contenedor
+# Copiamos todo el contenido del repositorio
 COPY . .
 
-# Ejecutamos el restore apuntando directamente a tu archivo .slnx
-RUN dotnet restore "HOTEL_MVC_v1/HotelMVCVISUAL.slnx"
+# Restauramos dependencias apuntando a la ruta exacta descubierta
+RUN dotnet restore "HOTEL_MVC_v1/FRONT_HOTEL_MVC/HotelMVC/HotelMVC.csproj"
 
-# Compilamos y publicamos el proyecto usando la ruta exacta de la solución
-RUN dotnet publish "HOTEL_MVC_v1/HotelMVCVISUAL.slnx" -c Release -o /app/publish
+# Compilamos y publicamos el proyecto Web directo a la carpeta /app/publish
+RUN dotnet publish "HOTEL_MVC_v1/FRONT_HOTEL_MVC/HotelMVC/HotelMVC.csproj" -c Release -o /app/publish
 
 # 2. Capa de ejecución (Runtime de .NET 8)
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS final
 WORKDIR /app
 COPY --from=build /app/publish .
 
-# Forzar el puerto 80 que es el estándar que Railway mapea hacia el exterior
+# Forzar el puerto 80 para que Railway asigne tu dominio público
 ENV ASPNETCORE_URLS=http://+:80
 EXPOSE 80
 
-# Ejecutable principal de la aplicación al arrancar
-ENTRYPOINT ["dotnet", "FRONT_MVC_HOTEL.dll"]
+# El ejecutable real de salida de tu proyecto según el .csproj
+ENTRYPOINT ["dotnet", "HotelMVC.dll"]
