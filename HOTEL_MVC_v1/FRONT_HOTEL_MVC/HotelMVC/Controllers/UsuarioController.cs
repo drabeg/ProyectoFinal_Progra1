@@ -22,7 +22,7 @@ public class UsuarioController : Controller
     private async Task CargarEmpleadosAsync()
     {
         var client = _http.CreateClient("HotelAPI");
-        // Nota: Asegúrate si este endpoint ocupa o no "api/". Si también falla, agrégale "api/empleado"
+        // CORREGIDO: Se quita "api/" porque la URL base ya lo incluye
         var res = await client.GetAsync("empleado"); 
         var empleados = new List<Empleado>();
         if (res.IsSuccessStatusCode)
@@ -43,23 +43,34 @@ public class UsuarioController : Controller
         
         try
         {
-            var res = await client.GetAsync("api/usuario");
+            // CORREGIDO: Cambiado de "api/usuario" a "usuario" para evitar duplicar rutas
+            var res = await client.GetAsync("usuario");
             
             if (res.IsSuccessStatusCode)
             {
                 var body = await res.Content.ReadAsStringAsync();
                 lista = JsonSerializer.Deserialize<List<Usuario>>(body, _json) ?? new();
                 
-                ViewBag.MensajeDiagnostico = $"🟢 API Conectada con éxito. Registros devueltos por la API: {lista.Count}. Body: {body}";
+                ViewBag.MensajeDiagnostico = $"🟢 API Conectada con éxito. Registros detectados: {lista.Count}";
             }
             else
             {
-                ViewBag.MensajeDiagnostico = $"🔴 Error de la API: Código {(int)res.StatusCode} ({res.StatusCode}). La ruta buscada fue: {client.BaseAddress}api/usuario";
+                ViewBag.MensajeDiagnostico = $"🔴 Error de la API: Código {(int)res.StatusCode} ({res.StatusCode}). Buscando en: {client.BaseAddress}usuario";
             }
         }
         catch (Exception ex)
         {
-            ViewBag.MensajeDiagnostico = $"💥 Error crítico en el código MVC: {ex.Message} | Inner: {ex.InnerException?.Message}";
+            ViewBag.MensajeDiagnostico = $"💥 Error crítico en MVC: {ex.Message}";
+        }
+
+        // Reactivamos la carga de empleados de forma segura
+        try
+        {
+            await CargarEmpleadosAsync();
+        }
+        catch
+        {
+            ViewBag.MensajeDiagnostico += " | ⚠️ Nota: No se pudieron mapear los empleados.";
         }
 
         return View(lista);
@@ -68,21 +79,21 @@ public class UsuarioController : Controller
     public async Task<IActionResult> Crear()
     {
         var redir = RedirigirSiNoHaySesion(); if (redir != null) return redir;
-        // COMENTAMOS TEMPORALMENTE
-        // await CargarEmpleadosAsync(); 
+        await CargarEmpleadosAsync(); 
         return View(new Usuario());
     }
 
     [HttpPost]
     public async Task<IActionResult> Crear(Usuario usuario)
     {
-        // COMENTAMOS EL MODELSTATE TEMPORALMENTE POR SI ACASO
-        // if (!ModelState.IsValid) { await CargarEmpleadosAsync(); return View(usuario); }
+        if (!ModelState.IsValid) { await CargarEmpleadosAsync(); return View(usuario); }
 
         var client = _http.CreateClient("HotelAPI");
         var json = JsonSerializer.Serialize(usuario);
         var content = new StringContent(json, Encoding.UTF8, "application/json");
-        await client.PostAsync("api/usuario", content); 
+        
+        // CORREGIDO: Cambiado a "usuario" a secas
+        await client.PostAsync("usuario", content); 
         return RedirectToAction("Index");
     }
 
@@ -91,7 +102,8 @@ public class UsuarioController : Controller
         var redir = RedirigirSiNoHaySesion(); if (redir != null) return redir;
 
         var client = _http.CreateClient("HotelAPI");
-        var res = await client.GetAsync("api/usuario"); 
+        // CORREGIDO: Cambiado a "usuario" a secas
+        var res = await client.GetAsync("usuario"); 
         var lista = new List<Usuario>();
         if (res.IsSuccessStatusCode)
         {
@@ -101,11 +113,9 @@ public class UsuarioController : Controller
         var usuario = lista.FirstOrDefault(u => u.IdUsuario == id);
         if (usuario == null) return NotFound();
 
-        // COMENTAMOS TEMPORALMENTE
-        // await CargarEmpleadosAsync(); 
+        await CargarEmpleadosAsync(); 
         return View(usuario);
     }
-
 
     [HttpPost]
     public async Task<IActionResult> Editar(int id, Usuario usuario)
@@ -115,8 +125,9 @@ public class UsuarioController : Controller
         var client = _http.CreateClient("HotelAPI");
         var json = JsonSerializer.Serialize(usuario);
         var content = new StringContent(json, Encoding.UTF8, "application/json");
-        // CORREGIDO: Añadido "api/" adelante de usuario
-        await client.PutAsync($"api/usuario/{id}", content); 
+        
+        // CORREGIDO: Cambiado a "usuario/{id}" sin el "api/"
+        await client.PutAsync($"usuario/{id}", content); 
         return RedirectToAction("Index");
     }
 }
