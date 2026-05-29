@@ -39,7 +39,6 @@ public class UsuarioController : Controller
         var redir = RedirigirSiNoHaySesion(); if (redir != null) return redir;
 
         var client = _http.CreateClient("HotelAPI");
-        // CORREGIDO: Añadido "api/" adelante de usuario
         var res = await client.GetAsync("api/usuario"); 
         var lista = new List<Usuario>();
         if (res.IsSuccessStatusCode)
@@ -48,26 +47,29 @@ public class UsuarioController : Controller
             lista = JsonSerializer.Deserialize<List<Usuario>>(body, _json) ?? new();
         }
 
-        await CargarEmpleadosAsync();
+        // COMENTAMOS ESTO PARA QUE SI FALLAN LOS EMPLEADOS NO DETENGA LOS USUARIOS
+        // await CargarEmpleadosAsync(); 
+        
         return View(lista);
     }
 
     public async Task<IActionResult> Crear()
     {
         var redir = RedirigirSiNoHaySesion(); if (redir != null) return redir;
-        await CargarEmpleadosAsync();
+        // COMENTAMOS TEMPORALMENTE
+        // await CargarEmpleadosAsync(); 
         return View(new Usuario());
     }
 
     [HttpPost]
     public async Task<IActionResult> Crear(Usuario usuario)
     {
-        if (!ModelState.IsValid) { await CargarEmpleadosAsync(); return View(usuario); }
+        // COMENTAMOS EL MODELSTATE TEMPORALMENTE POR SI ACASO
+        // if (!ModelState.IsValid) { await CargarEmpleadosAsync(); return View(usuario); }
 
         var client = _http.CreateClient("HotelAPI");
         var json = JsonSerializer.Serialize(usuario);
         var content = new StringContent(json, Encoding.UTF8, "application/json");
-        // CORREGIDO: Añadido "api/" adelante de usuario
         await client.PostAsync("api/usuario", content); 
         return RedirectToAction("Index");
     }
@@ -77,7 +79,6 @@ public class UsuarioController : Controller
         var redir = RedirigirSiNoHaySesion(); if (redir != null) return redir;
 
         var client = _http.CreateClient("HotelAPI");
-        // CORREGIDO: Añadido "api/" adelante de usuario
         var res = await client.GetAsync("api/usuario"); 
         var lista = new List<Usuario>();
         if (res.IsSuccessStatusCode)
@@ -88,9 +89,11 @@ public class UsuarioController : Controller
         var usuario = lista.FirstOrDefault(u => u.IdUsuario == id);
         if (usuario == null) return NotFound();
 
-        await CargarEmpleadosAsync();
+        // COMENTAMOS TEMPORALMENTE
+        // await CargarEmpleadosAsync(); 
         return View(usuario);
     }
+
 
     [HttpPost]
     public async Task<IActionResult> Editar(int id, Usuario usuario)
