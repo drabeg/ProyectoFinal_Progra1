@@ -39,17 +39,29 @@ public class UsuarioController : Controller
         var redir = RedirigirSiNoHaySesion(); if (redir != null) return redir;
 
         var client = _http.CreateClient("HotelAPI");
-        var res = await client.GetAsync("api/usuario"); 
         var lista = new List<Usuario>();
-        if (res.IsSuccessStatusCode)
+        
+        try
         {
-            var body = await res.Content.ReadAsStringAsync();
-            lista = JsonSerializer.Deserialize<List<Usuario>>(body, _json) ?? new();
+            var res = await client.GetAsync("api/usuario");
+            
+            if (res.IsSuccessStatusCode)
+            {
+                var body = await res.Content.ReadAsStringAsync();
+                lista = JsonSerializer.Deserialize<List<Usuario>>(body, _json) ?? new();
+                
+                ViewBag.MensajeDiagnostico = $"🟢 API Conectada con éxito. Registros devueltos por la API: {lista.Count}. Body: {body}";
+            }
+            else
+            {
+                ViewBag.MensajeDiagnostico = $"🔴 Error de la API: Código {(int)res.StatusCode} ({res.StatusCode}). La ruta buscada fue: {client.BaseAddress}api/usuario";
+            }
+        }
+        catch (Exception ex)
+        {
+            ViewBag.MensajeDiagnostico = $"💥 Error crítico en el código MVC: {ex.Message} | Inner: {ex.InnerException?.Message}";
         }
 
-        // COMENTAMOS ESTO PARA QUE SI FALLAN LOS EMPLEADOS NO DETENGA LOS USUARIOS
-        // await CargarEmpleadosAsync(); 
-        
         return View(lista);
     }
 
