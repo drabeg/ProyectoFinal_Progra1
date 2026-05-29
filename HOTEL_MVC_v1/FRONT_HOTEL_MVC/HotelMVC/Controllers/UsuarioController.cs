@@ -22,7 +22,8 @@ public class UsuarioController : Controller
     private async Task CargarEmpleadosAsync()
     {
         var client = _http.CreateClient("HotelAPI");
-        var res = await client.GetAsync("empleado");
+        // Nota: Asegúrate si este endpoint ocupa o no "api/". Si también falla, agrégale "api/empleado"
+        var res = await client.GetAsync("empleado"); 
         var empleados = new List<Empleado>();
         if (res.IsSuccessStatusCode)
         {
@@ -38,7 +39,8 @@ public class UsuarioController : Controller
         var redir = RedirigirSiNoHaySesion(); if (redir != null) return redir;
 
         var client = _http.CreateClient("HotelAPI");
-        var res = await client.GetAsync("usuario");
+        // CORREGIDO: Añadido "api/" adelante de usuario
+        var res = await client.GetAsync("api/usuario"); 
         var lista = new List<Usuario>();
         if (res.IsSuccessStatusCode)
         {
@@ -65,7 +67,8 @@ public class UsuarioController : Controller
         var client = _http.CreateClient("HotelAPI");
         var json = JsonSerializer.Serialize(usuario);
         var content = new StringContent(json, Encoding.UTF8, "application/json");
-        await client.PostAsync("usuario", content);
+        // CORREGIDO: Añadido "api/" adelante de usuario
+        await client.PostAsync("api/usuario", content); 
         return RedirectToAction("Index");
     }
 
@@ -74,7 +77,8 @@ public class UsuarioController : Controller
         var redir = RedirigirSiNoHaySesion(); if (redir != null) return redir;
 
         var client = _http.CreateClient("HotelAPI");
-        var res = await client.GetAsync("usuario");
+        // CORREGIDO: Añadido "api/" adelante de usuario
+        var res = await client.GetAsync("api/usuario"); 
         var lista = new List<Usuario>();
         if (res.IsSuccessStatusCode)
         {
@@ -96,7 +100,8 @@ public class UsuarioController : Controller
         var client = _http.CreateClient("HotelAPI");
         var json = JsonSerializer.Serialize(usuario);
         var content = new StringContent(json, Encoding.UTF8, "application/json");
-        await client.PutAsync($"usuario/{id}", content);
+        // CORREGIDO: Añadido "api/" adelante de usuario
+        await client.PutAsync($"api/usuario/{id}", content); 
         return RedirectToAction("Index");
     }
 }
