@@ -7,7 +7,15 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddHttpClient("HotelAPI", client =>
 {
     var baseUrl = builder.Configuration["ApiSettings:BaseUrl"] ?? "http://localhost:5000/api";
-    client.BaseAddress = new Uri(baseUrl + "/");
+    
+    // Aseguramos que si la URL de Railway ya trae "/api", se lo removemos para dejar la base limpia
+    if (baseUrl.EndsWith("/api"))
+    {
+        baseUrl = baseUrl.Substring(0, baseUrl.Length - 4);
+    }
+    
+    // Ahora la URL base siempre terminará limpiamente en .app/ o localhost:5000/
+    client.BaseAddress = new Uri(baseUrl.TrimEnd('/') + "/");
 });
 
 // Sesión para guardar el usuario logueado

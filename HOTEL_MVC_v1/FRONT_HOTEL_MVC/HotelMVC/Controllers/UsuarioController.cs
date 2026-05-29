@@ -22,8 +22,8 @@ public class UsuarioController : Controller
     private async Task CargarEmpleadosAsync()
     {
         var client = _http.CreateClient("HotelAPI");
-        // CORREGIDO: Se quita "api/" porque la URL base ya lo incluye
-        var res = await client.GetAsync("empleado"); 
+        // CORREGIDO: Apunta a api/empleado de forma explícita
+        var res = await client.GetAsync("api/empleado"); 
         var empleados = new List<Empleado>();
         if (res.IsSuccessStatusCode)
         {
@@ -43,8 +43,8 @@ public class UsuarioController : Controller
         
         try
         {
-            // CORREGIDO: Cambiado de "api/usuario" a "usuario" para evitar duplicar rutas
-            var res = await client.GetAsync("usuario");
+            // CORREGIDO: Apunta a api/usuario de forma explícita
+            var res = await client.GetAsync("api/usuario");
             
             if (res.IsSuccessStatusCode)
             {
@@ -55,7 +55,7 @@ public class UsuarioController : Controller
             }
             else
             {
-                ViewBag.MensajeDiagnostico = $"🔴 Error de la API: Código {(int)res.StatusCode} ({res.StatusCode}). Buscando en: {client.BaseAddress}usuario";
+                ViewBag.MensajeDiagnostico = $"🔴 Error de la API: Código {(int)res.StatusCode} ({res.StatusCode}). Buscando en: {client.BaseAddress}api/usuario";
             }
         }
         catch (Exception ex)
@@ -63,7 +63,6 @@ public class UsuarioController : Controller
             ViewBag.MensajeDiagnostico = $"💥 Error crítico en MVC: {ex.Message}";
         }
 
-        // Reactivamos la carga de empleados de forma segura
         try
         {
             await CargarEmpleadosAsync();
@@ -92,8 +91,8 @@ public class UsuarioController : Controller
         var json = JsonSerializer.Serialize(usuario);
         var content = new StringContent(json, Encoding.UTF8, "application/json");
         
-        // CORREGIDO: Cambiado a "usuario" a secas
-        await client.PostAsync("usuario", content); 
+        // CORREGIDO: Se envía a api/usuario
+        await client.PostAsync("api/usuario", content); 
         return RedirectToAction("Index");
     }
 
@@ -102,8 +101,8 @@ public class UsuarioController : Controller
         var redir = RedirigirSiNoHaySesion(); if (redir != null) return redir;
 
         var client = _http.CreateClient("HotelAPI");
-        // CORREGIDO: Cambiado a "usuario" a secas
-        var res = await client.GetAsync("usuario"); 
+        // CORREGIDO: Se consulta a api/usuario
+        var res = await client.GetAsync("api/usuario"); 
         var lista = new List<Usuario>();
         if (res.IsSuccessStatusCode)
         {
@@ -126,9 +125,8 @@ public class UsuarioController : Controller
         var json = JsonSerializer.Serialize(usuario);
         var content = new StringContent(json, Encoding.UTF8, "application/json");
         
-        // CORREGIDO: Cambiado a "usuario/{id}" sin el "api/"
-        await client.PutAsync($"usuario/{id}", content); 
+        // CORREGIDO: Se envía a api/usuario/{id}
+        await client.PutAsync($"api/usuario/{id}", content); 
         return RedirectToAction("Index");
     }
 }
-
