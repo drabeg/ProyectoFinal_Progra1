@@ -36,6 +36,8 @@ public class HomeController : Controller
     [HttpPost]
     public async Task<IActionResult> Login(LoginRequest request)
     {
+        //COMENTARIO PARA BYPASS EL LOGIN
+        /*
         var client = _httpClientFactory.CreateClient("HotelAPI");
         var json = JsonSerializer.Serialize(new { username = request.Username, password = request.Password });
         var content = new StringContent(json, Encoding.UTF8, "application/json");
@@ -59,6 +61,15 @@ public class HomeController : Controller
 
         ViewBag.Error = "Usuario o contraseña incorrectos.";
         return View(request);
+        */
+        
+        //FORZAMOS LA SESIÓN DIRECTO PARA ENTRAR COMO ADMIN
+        HttpContext.Session.SetString("Username", "admin");
+        HttpContext.Session.SetString("Rol", "Administrador");
+        HttpContext.Session.SetInt32("IdUsuario", 1);
+
+    return RedirectToAction("Index");
+
     }
 
     // GET: /Home/Logout
