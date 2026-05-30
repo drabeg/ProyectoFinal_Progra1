@@ -1,0 +1,144 @@
+is_global = true
+build_property.TargetFramework = net10.0
+build_property.TargetFrameworkIdentifier = .NETCoreApp
+build_property.TargetFrameworkVersion = v10.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property.EntryPointFilePath = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = HotelMVC
+build_property.RootNamespace = HotelMVC
+build_property.ProjectDir = C:\Users\dargo\OneDrive\Documentos\Dario\U\UMG\Segundo año\Programación 1\Proyecto Final\FRONT_MVC_HOTEL\HOTEL_MVC_2.0_REPORTS\HOTEL_MVC_2.0_REPORTS\front\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 10.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\dargo\OneDrive\Documentos\Dario\U\UMG\Segundo año\Programación 1\Proyecto Final\FRONT_MVC_HOTEL\HOTEL_MVC_2.0_REPORTS\HOTEL_MVC_2.0_REPORTS\front
+build_property._RazorSourceGeneratorDebug = 
+build_property.EffectiveAnalysisLevelStyle = 10.0
+build_property.EnableCodeStyleSeverity = 
+
+[C:/Users/dargo/OneDrive/Documentos/Dario/U/UMG/Segundo año/Programación 1/Proyecto Final/FRONT_MVC_HOTEL/HOTEL_MVC_2.0_REPORTS/HOTEL_MVC_2.0_REPORTS/front/Views/Cliente/Crear.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZVxDcmVhci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/dargo/OneDrive/Documentos/Dario/U/UMG/Segundo año/Programación 1/Proyecto Final/FRONT_MVC_HOTEL/HOTEL_MVC_2.0_REPORTS/HOTEL_MVC_2.0_REPORTS/front/Views/Cliente/Editar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZVxFZGl0YXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/dargo/OneDrive/Documentos/Dario/U/UMG/Segundo año/Programación 1/Proyecto Final/FRONT_MVC_HOTEL/HOTEL_MVC_2.0_REPORTS/HOTEL_MVC_2.0_REPORTS/front/Views/Cliente/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/dargo/OneDrive/Documentos/Dario/U/UMG/Segundo año/Programación 1/Proyecto Final/FRONT_MVC_HOTEL/HOTEL_MVC_2.0_REPORTS/HOTEL_MVC_2.0_REPORTS/front/Views/Empleado/Crear.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbGVhZG9cQ3JlYXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/dargo/OneDrive/Documentos/Dario/U/UMG/Segundo año/Programación 1/Proyecto Final/FRONT_MVC_HOTEL/HOTEL_MVC_2.0_REPORTS/HOTEL_MVC_2.0_REPORTS/front/Views/Empleado/Editar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbGVhZG9cRWRpdGFyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/dargo/OneDrive/Documentos/Dario/U/UMG/Segundo año/Programación 1/Proyecto Final/FRONT_MVC_HOTEL/HOTEL_MVC_2.0_REPORTS/HOTEL_MVC_2.0_REPORTS/front/Views/Empleado/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbGVhZG9cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/dargo/OneDrive/Documentos/Dario/U/UMG/Segundo año/Programación 1/Proyecto Final/FRONT_MVC_HOTEL/HOTEL_MVC_2.0_REPORTS/HOTEL_MVC_2.0_REPORTS/front/Views/Habitacion/Crear.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSGFiaXRhY2lvblxDcmVhci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/dargo/OneDrive/Documentos/Dario/U/UMG/Segundo año/Programación 1/Proyecto Final/FRONT_MVC_HOTEL/HOTEL_MVC_2.0_REPORTS/HOTEL_MVC_2.0_REPORTS/front/Views/Habitacion/Editar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSGFiaXRhY2lvblxFZGl0YXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/dargo/OneDrive/Documentos/Dario/U/UMG/Segundo año/Programación 1/Proyecto Final/FRONT_MVC_HOTEL/HOTEL_MVC_2.0_REPORTS/HOTEL_MVC_2.0_REPORTS/front/Views/Habitacion/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSGFiaXRhY2lvblxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/dargo/OneDrive/Documentos/Dario/U/UMG/Segundo año/Programación 1/Proyecto Final/FRONT_MVC_HOTEL/HOTEL_MVC_2.0_REPORTS/HOTEL_MVC_2.0_REPORTS/front/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/dargo/OneDrive/Documentos/Dario/U/UMG/Segundo año/Programación 1/Proyecto Final/FRONT_MVC_HOTEL/HOTEL_MVC_2.0_REPORTS/HOTEL_MVC_2.0_REPORTS/front/Views/Home/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/dargo/OneDrive/Documentos/Dario/U/UMG/Segundo año/Programación 1/Proyecto Final/FRONT_MVC_HOTEL/HOTEL_MVC_2.0_REPORTS/HOTEL_MVC_2.0_REPORTS/front/Views/Hotel/Crear.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG90ZWxcQ3JlYXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/dargo/OneDrive/Documentos/Dario/U/UMG/Segundo año/Programación 1/Proyecto Final/FRONT_MVC_HOTEL/HOTEL_MVC_2.0_REPORTS/HOTEL_MVC_2.0_REPORTS/front/Views/Hotel/Editar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG90ZWxcRWRpdGFyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/dargo/OneDrive/Documentos/Dario/U/UMG/Segundo año/Programación 1/Proyecto Final/FRONT_MVC_HOTEL/HOTEL_MVC_2.0_REPORTS/HOTEL_MVC_2.0_REPORTS/front/Views/Hotel/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG90ZWxcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/dargo/OneDrive/Documentos/Dario/U/UMG/Segundo año/Programación 1/Proyecto Final/FRONT_MVC_HOTEL/HOTEL_MVC_2.0_REPORTS/HOTEL_MVC_2.0_REPORTS/front/Views/Reportes/Clientes.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0ZXNcQ2xpZW50ZXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/dargo/OneDrive/Documentos/Dario/U/UMG/Segundo año/Programación 1/Proyecto Final/FRONT_MVC_HOTEL/HOTEL_MVC_2.0_REPORTS/HOTEL_MVC_2.0_REPORTS/front/Views/Reportes/Empleados.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0ZXNcRW1wbGVhZG9zLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/dargo/OneDrive/Documentos/Dario/U/UMG/Segundo año/Programación 1/Proyecto Final/FRONT_MVC_HOTEL/HOTEL_MVC_2.0_REPORTS/HOTEL_MVC_2.0_REPORTS/front/Views/Reportes/Habitaciones.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0ZXNcSGFiaXRhY2lvbmVzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/dargo/OneDrive/Documentos/Dario/U/UMG/Segundo año/Programación 1/Proyecto Final/FRONT_MVC_HOTEL/HOTEL_MVC_2.0_REPORTS/HOTEL_MVC_2.0_REPORTS/front/Views/Reportes/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0ZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/dargo/OneDrive/Documentos/Dario/U/UMG/Segundo año/Programación 1/Proyecto Final/FRONT_MVC_HOTEL/HOTEL_MVC_2.0_REPORTS/HOTEL_MVC_2.0_REPORTS/front/Views/Reportes/Ingresos.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0ZXNcSW5ncmVzb3MuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/dargo/OneDrive/Documentos/Dario/U/UMG/Segundo año/Programación 1/Proyecto Final/FRONT_MVC_HOTEL/HOTEL_MVC_2.0_REPORTS/HOTEL_MVC_2.0_REPORTS/front/Views/Reportes/Ocupacion.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0ZXNcT2N1cGFjaW9uLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/dargo/OneDrive/Documentos/Dario/U/UMG/Segundo año/Programación 1/Proyecto Final/FRONT_MVC_HOTEL/HOTEL_MVC_2.0_REPORTS/HOTEL_MVC_2.0_REPORTS/front/Views/Reportes/Reservaciones.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0ZXNcUmVzZXJ2YWNpb25lcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/dargo/OneDrive/Documentos/Dario/U/UMG/Segundo año/Programación 1/Proyecto Final/FRONT_MVC_HOTEL/HOTEL_MVC_2.0_REPORTS/HOTEL_MVC_2.0_REPORTS/front/Views/Reservacion/Crear.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzZXJ2YWNpb25cQ3JlYXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/dargo/OneDrive/Documentos/Dario/U/UMG/Segundo año/Programación 1/Proyecto Final/FRONT_MVC_HOTEL/HOTEL_MVC_2.0_REPORTS/HOTEL_MVC_2.0_REPORTS/front/Views/Reservacion/Editar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzZXJ2YWNpb25cRWRpdGFyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/dargo/OneDrive/Documentos/Dario/U/UMG/Segundo año/Programación 1/Proyecto Final/FRONT_MVC_HOTEL/HOTEL_MVC_2.0_REPORTS/HOTEL_MVC_2.0_REPORTS/front/Views/Reservacion/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzZXJ2YWNpb25cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/dargo/OneDrive/Documentos/Dario/U/UMG/Segundo año/Programación 1/Proyecto Final/FRONT_MVC_HOTEL/HOTEL_MVC_2.0_REPORTS/HOTEL_MVC_2.0_REPORTS/front/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/dargo/OneDrive/Documentos/Dario/U/UMG/Segundo año/Programación 1/Proyecto Final/FRONT_MVC_HOTEL/HOTEL_MVC_2.0_REPORTS/HOTEL_MVC_2.0_REPORTS/front/Views/Usuario/Crear.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb1xDcmVhci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/dargo/OneDrive/Documentos/Dario/U/UMG/Segundo año/Programación 1/Proyecto Final/FRONT_MVC_HOTEL/HOTEL_MVC_2.0_REPORTS/HOTEL_MVC_2.0_REPORTS/front/Views/Usuario/Editar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb1xFZGl0YXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/dargo/OneDrive/Documentos/Dario/U/UMG/Segundo año/Programación 1/Proyecto Final/FRONT_MVC_HOTEL/HOTEL_MVC_2.0_REPORTS/HOTEL_MVC_2.0_REPORTS/front/Views/Usuario/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/dargo/OneDrive/Documentos/Dario/U/UMG/Segundo año/Programación 1/Proyecto Final/FRONT_MVC_HOTEL/HOTEL_MVC_2.0_REPORTS/HOTEL_MVC_2.0_REPORTS/front/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/dargo/OneDrive/Documentos/Dario/U/UMG/Segundo año/Programación 1/Proyecto Final/FRONT_MVC_HOTEL/HOTEL_MVC_2.0_REPORTS/HOTEL_MVC_2.0_REPORTS/front/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 

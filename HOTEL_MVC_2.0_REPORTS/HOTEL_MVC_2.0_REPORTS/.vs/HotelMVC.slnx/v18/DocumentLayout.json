@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\dargo\\OneDrive\\Documentos\\Dario\\U\\UMG\\Segundo a\u00F1o\\Programaci\u00F3n 1\\Proyecto Final\\FRONT_MVC_HOTEL\\HOTEL_MVC_2.0_REPORTS\\HOTEL_MVC_2.0_REPORTS\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{0CF52193-0C36-A00D-E7AE-4EAC5DDDE7F1}|front\\HotelMVC.csproj|c:\\users\\dargo\\onedrive\\documentos\\dario\\u\\umg\\segundo a\u00F1o\\programaci\u00F3n 1\\proyecto final\\front_mvc_hotel\\hotel_mvc_2.0_reports\\hotel_mvc_2.0_reports\\front\\controllers\\empleadocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0CF52193-0C36-A00D-E7AE-4EAC5DDDE7F1}|front\\HotelMVC.csproj|solutionrelative:front\\controllers\\empleadocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "EmpleadoController.cs",
+              "DocumentMoniker": "C:\\Users\\dargo\\OneDrive\\Documentos\\Dario\\U\\UMG\\Segundo a\u00F1o\\Programaci\u00F3n 1\\Proyecto Final\\FRONT_MVC_HOTEL\\HOTEL_MVC_2.0_REPORTS\\HOTEL_MVC_2.0_REPORTS\\front\\Controllers\\EmpleadoController.cs",
+              "RelativeDocumentMoniker": "front\\Controllers\\EmpleadoController.cs",
+              "ToolTip": "C:\\Users\\dargo\\OneDrive\\Documentos\\Dario\\U\\UMG\\Segundo a\u00F1o\\Programaci\u00F3n 1\\Proyecto Final\\FRONT_MVC_HOTEL\\HOTEL_MVC_2.0_REPORTS\\HOTEL_MVC_2.0_REPORTS\\front\\Controllers\\EmpleadoController.cs",
+              "RelativeToolTip": "front\\Controllers\\EmpleadoController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-30T07:41:00.356Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
