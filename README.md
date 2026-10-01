@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # 🏨 Hotel MVC — Sistema de Gestión Hotelera
 
 Sistema de gestión hotelera desarrollado con arquitectura de dos capas: una **API REST** construida en ASP.NET Core (.NET 10) como backend, y un **frontend MVC** separado que consume dicha API. El proyecto permite administrar reservaciones, habitaciones, clientes, empleados y más, a través de endpoints RESTful documentados con Swagger.
@@ -126,40 +125,36 @@ Antes de ejecutar, apunta el proyecto a tu API REST editando `appsettings.json`:
 ## 📁 Estructura del Proyecto
 
 ```
-HOTEL_MVC_v1/
-├── HotelMVCVISUAL.slnx                  # Solución Visual Studio principal
+FRONT_MVC_HOTEL/
+├── Docs importantes/                  # Documentación, diagramas ER y especificaciones
+│   ├── Proyecto_Final_Progra1_DB.docx.pdf
+│   └── Proyecto_Progra_DiagramaER.png
 │
-├── API_HOTEL_MAIN/                       # Proyecto de la API REST
-│   ├── API REST CONFIGURACION/
-│   │   ├── Controllers/                  # Controladores de la API
-│   │   │   ├── ClienteController.cs
-│   │   │   ├── DetalleReservacionController.cs
-│   │   │   ├── EmpleadoController.cs
-│   │   │   ├── HabitacionController.cs
-│   │   │   ├── HotelController.cs
-│   │   │   ├── ReservacionController.cs
-│   │   │   ├── TipoHabitacionController.cs
-│   │   │   └── UsuarioController.cs
-│   │   ├── Data/
-│   │   │   └── HotelDbContext.cs         # Contexto de Entity Framework
-│   │   ├── Models/                       # Modelos de la base de datos
-│   │   │   ├── Cliente.cs
-│   │   │   ├── DetalleReservacion.cs
-│   │   │   ├── Empleado.cs
-│   │   │   ├── Habitacion.cs
-│   │   │   ├── Hotel.cs
-│   │   │   ├── Reservacion.cs
-│   │   │   ├── TipoHabitacion.cs
-│   │   │   └── Usuario.cs
-│   │   ├── Properties/
-│   │   │   └── launchSettings.json       # Configuración de perfiles de inicio
-│   │   ├── appsettings.json              # Configuración de conexión y app
-│   │   ├── appsettings.Development.json
-│   │   ├── Program.cs                    # Punto de entrada y configuración de servicios
-│   │   └── HotelAPI.csproj
-│   └── HotelAPI.slnx
+├── FRONT_HOTEL_SPA/                   # Implementación Frontend SPA (HTML/CSS/JS)
+│   ├── app.js
+│   ├── index.html
+│   └── style.css
 │
-└── FRONT_HOTEL_MVC/                      # Frontend MVC (consume la API)
+├── HOTEL_MVC_2.0_REPORTS/             # Versión con módulo de reportes integrado
+│   └── HOTEL_MVC_2.0_REPORTS/
+│       ├── api/                      # Backend API de reportes
+│       ├── front/                    # Frontend de reportes
+│       └── HotelMVC.slnx
+│
+├── HOTEL_MVC_v1/                      # Proyecto Principal (Solución decoupled)
+│   ├── API_HOTEL_MAIN/               # Backend: API REST (.NET 10)
+│   │   ├── API REST CONFIGURACION/   # Controladores, Contexto EF Core y Configuración
+│   │   ├── Dockerfile
+│   │   ├── HotelAPI.slnx
+│   │   └── README.md
+│   │
+│   └── FRONT_HOTEL_MVC/              # Frontend: ASP.NET Core MVC (Razor Pages)
+│       └── HotelMVCVISUAL.slnx
+│
+├── DB_Hotel_Script.sql                # Script de creación de base de datos SQL Server
+├── Dockerfile                         # Configuración Docker raíz
+├── queries.txt                        # Consultas auxiliares SQL
+└── README.md                          # Documentación general del repositorio
 ```
 
 
@@ -296,108 +291,12 @@ Para producción se recomienda restringir los orígenes permitidos.
 
 Este proyecto fue desarrollado con fines académicos.
 
-Autores
-=======
-# Proyecto Final - Programación I  
-## Sistema de Gestión de Hotel (Base de Datos)
+## 👥 Autores y Créditos Académicos
 
-![SQL Server](https://img.shields.io/badge/SQL%20Server-Database-blue)
-![Status](https://img.shields.io/badge/Estado-En%20Desarrollo-yellow)
-![License](https://img.shields.io/badge/Licencia-Uso%20Académico-orange)
+Este proyecto fue desarrollado con fines académicos como parte del curso de **Programación I** del tercer semestre de Ingeniería en Sistemas de la **Universidad Mariano Gálvez de Guatemala (UMG)**, impartido por el ingeniero **Sebastián Hernández Gabriel**.
 
----
-
-## Descripción
-
-Este proyecto consiste en el diseño e implementación de una base de datos para la gestión de un hotel.  
-Permite administrar información de empleados, usuarios, clientes, habitaciones y reservaciones.
-
-El sistema está orientado a simular el funcionamiento real de un hotel mediante el uso de consultas SQL.
-
----
-
-## Objetivos
-
-### Objetivo General
-Desarrollar una base de datos funcional para la administración de un hotel.
-
-### Objetivos Específicos
-- Diseñar tablas con relaciones correctas (PK y FK)
-- Insertar datos de prueba
-- Realizar consultas SQL relevantes
-- Organizar scripts para fácil reutilización
-
----
-
-## Estructura de la Base de Datos
-
-El sistema incluye las siguientes tablas:
-
-- Empleado  
-- Usuario  
-- Hotel  
-- TipoHabitacion  
-- Habitacion  
-- Cliente  
-- Reservacion  
-- DetalleReservacion  
-
-### Relaciones principales:
-- Un empleado puede tener un usuario
-- Un cliente puede realizar reservaciones
-- Una reservación puede incluir varias habitaciones
-- Las habitaciones pertenecen a un hotel y a un tipo
-
----
-
-## Funcionalidades
-
-- Creación de base de datos y tablas  
-- Inserción de datos  
-- Consultas básicas (`SELECT`)  
-- Consultas con `JOIN`  
-- Consulta de disponibilidad de habitaciones  
-
----
-
-## Cómo ejecutar el proyecto
-
-1. Abrir el gestor de base de datos (SQL Server)
-2. Ejecutar el archivo:
-
-```sql
-DB_Hotel_Script.sql
-```
-
-Ejecutar consultas adicionales desde: `queries.txt`
-
----
-
-## Estado del Proyecto
-
-Actualmente el proyecto se encuentra en desarrollo.  
-En esta primera fase se implementó la base de datos.  
-
-Fases pendientes:
-- Desarrollo de API
-- Interfaz de usuario
-
----
-
-## Autores
-
->>>>>>> 52c0449de0deb4596dc30d78fdfba828d24a418c
-- Nombre: Dario Alfredo Rabe Godoy /Carné: 5190-25-23683
-- Nombre: Libbny Dayana Medrano Arévalo /Carné: 5190-25-24096
-- Nombre: Richard Esteev Pernillo Macario /Carné: 5190-25-21234
-- Nombre: Cristian Daniel Emiliano Cano Estrada /Carné: 5190-25-24608
-- Nombre: Diego Jose Quevedo Vega /Carné: 5190-24-21422
-- Universidad Mariano Gálvez
-<<<<<<< HEAD
-=======
-
-## Notas
-Este proyecto fue desarrollado con fines académicos como parte del curso de Programación I del tercer semestre de ingeniería en sistemas de la Universidad Mariano Gálvez, impartido por el ingeniero Sebastián Hernández Gabriel
-
----
->>>>>>> 52c0449de0deb4596dc30d78fdfba828d24a418c
+* **Darío Alfredo Rabé Godoy** — Carné: 5190-25-23683
+* **Libbny Dayana Medrano Arévalo** — Carné: 5190-25-24096
+* **Richard Esteev Pernillo Macario** — Carné: 5190-25-21234
+* **Cristian Daniel Emiliano Cano Estrada** — Carné: 5190-25-24608
+* **Diego José Quevedo Vega** — Carné: 5190-24-21422
